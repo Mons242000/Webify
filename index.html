@@ -1,206 +1,206 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño Web Impactante</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@700&display=swap" rel="stylesheet">
-  
-    <style>
-        /* Estilos adicionales */
-        .hero-section {
-            background: url('https://signoscv.com/wp-content/uploads/2021/11/DW6.jpg') no-repeat center center/cover;
-            height: 100vh;
-            color: white;
-        }
-
-        .services-section,
-        .testimonials-section,
-        .contact-section {
-            padding: 60px 0;
-        }
-
-        .service-card {
-            transition: transform 0.3s ease;
-            height: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .btn-cta {
-            background-color: #007bff;
-            color: white;
-            font-size: 18px;
-            padding: 12px 30px;
-            border-radius: 30px;
-        }
-
-        .btn-cta:hover {
-            background-color: #0056b3;
-            color: white;
-        }
-
-        .testimonial-card {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .testimonial-card img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .animated-text {
-            animation: fadeInUp 1.5s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Estilos personalizados */
-        h1 {
-            font-family: 'Garamond', serif;
-            font-weight: bold;
-        }
-
-        h2 {
-            font-family: 'Garamond', serif;
-            font-weight: normal;
-            animation: fadeInUp 2s ease-out;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebX Design | Expertos en Diseño Web Futurista</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .video-fullscreen {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .video-fullscreen video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    header {
+      backdrop-filter: blur(10px);
+    }
+    section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  </style>
 </head>
+<body class="bg-gray-900 text-white font-sans relative overflow-x-hidden">
 
-<body>
+  <!-- 🔹 Menú superior -->
+  <header class="fixed top-0 left-0 w-full bg-black/40 text-white z-50">
+    <nav class="flex justify-between items-center px-8 py-4">
+      <h1 class="text-2xl font-bold tracking-widest text-cyan-400">WebX Design</h1>
+      <ul class="flex space-x-8 text-lg">
+        <li><a href="#home" class="hover:text-cyan-400 transition">Home</a></li>
+        <li><a href="#servicios" class="hover:text-cyan-400 transition">Nuestros Servicios</a></li>
+        <li><a href="#recomendaciones" class="hover:text-cyan-400 transition">Recomendaciones</a></li>
+        <li><a href="#catalogo" class="hover:text-cyan-400 transition">Catálogo</a></li>
+        <li><a href="#contacto" class="hover:text-cyan-400 transition">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center justify-content-center text-center">
-        <div class="container">
-            <h1 class="display-4 animated-text">Transformamos Ideas en Páginas Web Impactantes</h1>
-            <h1 class="lead animated-text">Tu negocio necesita una presencia digital impresionante. ¡Deja que nosotros lo hagamos por ti!</h1>
-            <a href="#contacto" class="btn btn-cta animated-text">Comienza Ahora</a>
+  <!-- 🔹 Home: solo video -->
+  <section id="home" class="video-fullscreen">
+    <video autoplay muted loop>
+      <source src="video.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </section>
+
+  <!-- 🔹 Sección principal después del video -->
+  <section id="intro" class="flex flex-col items-center justify-center text-center bg-gray-950">
+    <div class="p-10 rounded-2xl shadow-xl max-w-3xl">
+      <h2 class="text-5xl font-extrabold text-cyan-400 mb-4 drop-shadow-lg">Transformamos Ideas en Experiencias Digitales</h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        En <span class="text-cyan-400 font-semibold">WebX Design</span> creamos páginas web futuristas, con diseños impactantes, velocidad optimizada y tecnología inteligente.  
+        Tu marca no solo estará en internet... <span class="text-cyan-300 font-semibold">dominará la experiencia digital</span>.
+      </p>
+      <a href="#servicios" class="mt-8 inline-block bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-8 py-3 rounded-full transition">
+        Conoce Nuestros Servicios
+      </a>
+    </div>
+  </section>
+
+  <!-- 🔹 Servicios -->
+  <section id="servicios" class="bg-gray-900">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold text-cyan-400 mb-6">Nuestros Servicios</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Servicio 1 -->
+        <div class="p-4 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
+          <video autoplay muted loop class="rounded-xl mb-4 w-full h-40 object-cover">
+            <source src="https://cdn.pixabay.com/vimeo/344764779/technology-22777.mp4?width=640&hash=5f39dfc7cdb7b6178305b49c59e0db2304c7682d" type="video/mp4">
+          </video>
+          <h3 class="text-2xl font-semibold mb-2">Diseño Web Personalizado</h3>
+          <p class="text-gray-400 text-sm">Creamos sitios únicos que reflejan tu identidad. Diseño moderno, fluido y optimizado para todos los dispositivos.</p>
         </div>
-    </section>
- 
-    <!-- Servicios Section -->
-    <section id="servicios" class="services-section text-center">
-        <div class="container">
-            <h2 class="display-4 mb-5 animated-text">Nuestros Servicios</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <img src="https://blog.zegocloud.com/wp-content/uploads/2024/03/types-of-web-development-services.jpg" class="card-img-top" alt="Diseño Web">
-                        <div class="card-body">
-                            <h5 class="card-title">Diseño Web Profesional</h5>
-                            <p class="card-text">Creamos sitios web visualmente atractivos y funcionales, optimizados para cualquier dispositivo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <img src="https://static.vecteezy.com/system/resources/previews/008/612/703/non_2x/html-code-on-computer-monitor-software-web-developer-programming-code-photo.jpg" class="card-img-top" alt="Desarrollo Web">
-                        <div class="card-body">
-                            <h5 class="card-title">Desarrollo Web</h5>
-                            <p class="card-text">Desarrollamos sitios web a medida, desde tiendas online hasta plataformas interactivas, con una tecnología avanzada.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card service-card">
-                        <img src="https://i0.wp.com/api.pometagrafica.com/wp-content/uploads/2021/11/mantenimiento-paginas-web.jpg?resize=800%2C542&ssl=1" class="card-img-top" alt="Mantenimiento Web">
-                        <div class="card-body">
-                            <h5 class="card-title">Mantenimiento Web</h5>
-                            <p class="card-text">Nos encargamos del mantenimiento de tu página para asegurar su óptimo rendimiento y actualizaciones constantes.</p>
-                        </div>
-                    </div>
-                </div>
+
+        <!-- Servicio 2 -->
+        <div class="p-4 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
+          <img src="https://cdn.dribbble.com/users/276529/screenshots/14317015/media/2a86e01907ed1f3560bb6a46e8a60b46.png" alt="SEO" class="rounded-xl mb-4 w-full h-40 object-cover">
+          <h3 class="text-2xl font-semibold mb-2">Optimización SEO</h3>
+          <p class="text-gray-400 text-sm">Posicionamos tu web en los primeros resultados de búsqueda, con estrategias inteligentes y contenido optimizado.</p>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="p-4 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
+          <video autoplay muted loop class="rounded-xl mb-4 w-full h-40 object-cover">
+            <source src="https://cdn.pixabay.com/vimeo/290083969/robot-19074.mp4?width=640&hash=3a3d40b9607467f3196a25aaeb25505e7dd4f91a" type="video/mp4">
+          </video>
+          <h3 class="text-2xl font-semibold mb-2">Integraciones Inteligentes</h3>
+          <p class="text-gray-400 text-sm">Automatiza procesos, conecta tu web con IA, CRM o chatbots y potencia tu productividad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔹 Recomendaciones tipo Google -->
+  <section id="recomendaciones" class="bg-gray-950">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold text-cyan-400 mb-8">Reseñas de Nuestros Clientes</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg text-left">
+          <div class="flex items-center space-x-4 mb-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 1" class="w-12 h-12 rounded-full">
+            <div>
+              <h3 class="font-semibold text-lg">Ana Martínez</h3>
+              <div class="text-yellow-400">★★★★★</div>
             </div>
+          </div>
+          <p class="text-gray-300">Excelente servicio, mi página se ve moderna y mis clientes la aman. ¡Totalmente recomendable!</p>
+          <p class="text-gray-500 text-sm mt-3">By Google Reviews</p>
         </div>
-    </section>
 
-    <!-- Testimonios Section -->
-    <section id="testimonios" class="testimonials-section bg-light text-center">
-        <div class="container">
-            <h2 class="display-4 mb-5 animated-text">Lo que Dicen Nuestros Clientes</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card testimonial-card p-4">
-                        <img src="https://i0.wp.com/www.diarlu.com/wp-content/uploads/2019/09/rostro-mujer-adulta.jpg?resize=500%2C500&ssl=1" class="card-img-top mx-auto mb-3" alt="Cliente">
-                        <div class="card-body">
-                            <p class="card-text">"Gracias a su excelente trabajo, nuestra página web ha crecido exponencialmente. ¡Super recomendados!"</p>
-                            <h5 class="card-title">Ana Pérez</h5>
-                            <p class="card-text">CEO de Empresa X</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card testimonial-card p-4">
-                        <img src="https://img.freepik.com/foto-gratis/disparo-cabeza-hombre-atractivo-sonriendo-complacido-mirando-intrigado-pie-sobre-fondo-azul_1258-65733.jpg" class="card-img-top mx-auto mb-3" alt="Cliente">
-                        <div class="card-body">
-                            <p class="card-text">"El diseño es increíble, muy profesional y funcional. ¡Totalmente satisfechos con el resultado!"</p>
-                            <h5 class="card-title">Carlos Martínez</h5>
-                            <p class="card-text">Fundador de Startup Y</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card testimonial-card p-4">
-                        <img src="https://st1.uvnimg.com/dims4/default/0346c7e/2147483647/thumbnail/1024x576/quality/75/?url=https%3A%2F%2Fuvn-brightspot.s3.amazonaws.com%2Fassets%2Fvixes%2Fimj%2Fvivirsalud%2FL%2FLas-caracteristicas-de-los-diferentes-tipos-de-rostros-2.jpg" class="card-img-top mx-auto mb-3" alt="Cliente">
-                        <div class="card-body">
-                            <p class="card-text">"Excelente atención, comunicación clara y puntual. ¡Nos ayudaron a lograr nuestra visión online!"</p>
-                            <h5 class="card-title">Laura González</h5>
-                            <p class="card-text">Gerente de Negocio Z</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- Review 2 -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg text-left">
+          <div class="flex items-center space-x-4 mb-4">
+            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Cliente 2" class="w-12 h-12 rounded-full">
+            <div>
+              <h3 class="font-semibold text-lg">Carlos Pérez</h3>
+              <div class="text-yellow-400">★★★★★</div>
             </div>
+          </div>
+          <p class="text-gray-300">El equipo de WebX es increíble. Captaron perfectamente la visión de mi empresa y la transformaron en una web espectacular.</p>
+          <p class="text-gray-500 text-sm mt-3">By Google Reviews</p>
         </div>
-    </section>
 
-    <!-- Contacto Section -->
-    <section id="contacto" class="contact-section text-center">
-        <div class="container">
-            <h2 class="display-4 mb-5 animated-text">Contáctanos para Empezar tu Proyecto</h2>
-            <p class="lead">Estamos listos para crear la página web de tus sueños. ¡Hablemos hoy mismo!</p>
-            <a href="mailto:info@tusitio.com" class="btn btn-cta animated-text">Envíanos un Correo</a>
+        <!-- Review 3 -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg text-left">
+          <div class="flex items-center space-x-4 mb-4">
+            <img src="https://randomuser.me/api/portraits/women/15.jpg" alt="Cliente 3" class="w-12 h-12 rounded-full">
+            <div>
+              <h3 class="font-semibold text-lg">María López</h3>
+              <div class="text-yellow-400">★★★★☆</div>
+            </div>
+          </div>
+          <p class="text-gray-300">El diseño es elegante y profesional. Me ayudaron con todo el proceso, súper atentos.</p>
+          <p class="text-gray-500 text-sm mt-3">By Google Reviews</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <div id="contenedor-formulario"></div>
-    <script async src="https://app.whatsmeet.com.mx/Forms/formulario.php?file=token_682e290c2937b"></script>
+  <!-- 🔹 Catálogo -->
+  <section id="catalogo" class="bg-gray-900">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold text-cyan-400 mb-8">Catálogo de Proyectos</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <a href="https://www.marketingmedico.mx/diseno-de-paginas-web-para-medicos/" target="_blank" class="bg-gray-800 rounded-2xl overflow-hidden hover:scale-105 transition block">
+          <img src="https://www.marketingmedico.mx/wp-content/uploads/2016/12/Marketing_Medico_Diseno_de_Paginas_Web_para_Medicos.jpg" alt="Diseño Médico" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">Diseño Web para Médicos</h3>
+          </div>
+        </a>
 
-    <!-- Footer -->
-    <footer class="text-center py-4">
-        <p>&copy; 2025 Tu Empresa de Diseño Web. Todos los derechos reservados.</p>
-    </footer>
+        <a href="https://www.motorpasion.com.mx/industria/quien-es-quien-en-cuanto-a-sitios-web-de-marcas-de-autos-en-mexico-los-analizamos" target="_blank" class="bg-gray-800 rounded-2xl overflow-hidden hover:scale-105 transition block">
+          <img src="https://i.blogs.es/b3b66f/collage-sitios-web/1366_2000.jpg" alt="Sitios Automotrices" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">Análisis de Sitios Automotrices</h3>
+          </div>
+        </a>
 
-    <!-- Bootstrap JS y Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
- 
+        <a href="https://nexovirtual.net/blog/disenar-la-mejor-tienda-online-de-vinos-o-bodegas/" target="_blank" class="bg-gray-800 rounded-2xl overflow-hidden hover:scale-105 transition block">
+          <img src="https://nexovirtual.net/blog/wp-content/uploads/2018/12/mejor-tienda-online-vinos.png" alt="Tienda de Vinos" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">Tienda Online de Vinos</h3>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔹 Contacto -->
+  <section id="contacto" class="bg-gray-950">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold text-cyan-400 mb-8">Contáctanos</h2>
+      <p class="text-gray-300 mb-8">¿Listo para llevar tu presencia digital al siguiente nivel? Escríbenos y hagamos tu visión realidad.</p>
+      <form class="max-w-md mx-auto space-y-4">
+        <input type="text" placeholder="Tu nombre" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 text-white focus:border-cyan-400">
+        <input type="email" placeholder="Tu correo" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 text-white focus:border-cyan-400">
+        <textarea placeholder="Cuéntanos tu idea" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 text-white focus:border-cyan-400"></textarea>
+        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-3 rounded-md transition">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-black/70 text-center py-6 text-gray-400">
+    © 2025 WebX Design — Creando el Futuro Digital
+  </footer>
+
 </body>
-
 </html>
+
