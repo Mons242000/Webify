@@ -1,168 +1,181 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebX Design | Expertos en Diseño Web Futurista</title>
+  <title>WebX Design | Diseño Web Premium</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      color: white;
       font-family: 'Poppins', sans-serif;
+      color: white;
+      background-color: #0a0a0a;
       overflow-x: hidden;
-      transition: background 0.5s ease;
-      background: radial-gradient(circle at top left, #0a0a0a, #111827, #0a0a0a);
     }
 
-    /* La constelación siempre visible */
-    #inicio canvas#constellation {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
+    /* Fondo con gradiente sutil */
+    .gold-gradient {
+      background: radial-gradient(circle at top left, #1a1a1a, #0a0a0a);
     }
 
-    #inicio .content {
-      position: relative;
-      z-index: 1;
+    /* Animación sutil de brillo dorado */
+    .text-gold {
+      background: linear-gradient(90deg, #f9d976, #f39f86, #f9d976);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s linear infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: 0% }
+      100% { background-position: 200% }
+    }
+
+    .btn-gold {
+      background: linear-gradient(90deg, #f5c542, #e2b439);
+      color: #000;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(90deg, #ffd65a, #f9c74f);
+      transform: scale(1.05);
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #f9d976, #f39f86);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Línea dorada decorativa */
+    .divider {
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #f9d976, #f39f86);
+      margin: 1rem auto;
+      border-radius: 3px;
+    }
+
+    /* Tarjetas elegantes */
+    .card {
+      background: #111;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      transition: all 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #f5c542;
+      box-shadow: 0 8px 30px rgba(245, 197, 66, 0.2);
     }
   </style>
 </head>
-<body>
+
+<body class="gold-gradient">
+
   <!-- HEADER -->
-  <header class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-md z-50 text-white py-4 px-8 flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-cyan-400 tracking-widest">WebX Design</h1>
+  <header class="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-md z-50 text-white py-4 px-8 flex justify-between items-center border-b border-gold-300">
+    <h1 class="text-2xl font-bold text-gold tracking-widest">WebX Design</h1>
     <ul class="flex space-x-6 text-lg">
-      <li><a href="#inicio" class="hover:text-cyan-400 transition">Inicio</a></li>
-      <li><a href="#servicios" class="hover:text-cyan-400 transition">Servicios</a></li>
-      <li><a href="#porqueelegirnos" class="hover:text-cyan-400 transition">Por qué elegirnos</a></li>
-      <li><a href="#planes" class="hover:text-cyan-400 transition">Planes</a></li>
-      <li><a href="#portafolio" class="hover:text-cyan-400 transition">Portafolio</a></li>
-      <li><a href="#contacto" class="hover:text-cyan-400 transition">Contacto</a></li>
+      <li><a href="#inicio" class="hover:text-yellow-400 transition">Inicio</a></li>
+      <li><a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a></li>
+      <li><a href="#porqueelegirnos" class="hover:text-yellow-400 transition">Por qué Elegirnos</a></li>
+      <li><a href="#planes" class="hover:text-yellow-400 transition">Planes</a></li>
+      <li><a href="#contacto" class="hover:text-yellow-400 transition">Contacto</a></li>
     </ul>
   </header>
 
-  <!-- SECCIÓN INICIO -->
-  <section id="inicio" class="relative h-screen flex flex-col items-center justify-center text-center overflow-hidden">
-    <canvas id="constellation"></canvas>
-    <div class="content" data-aos="zoom-in">
-      <h2 class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-blue-400 mb-6">
-        Diseños Web Que Crece tu Negocio e Incrementan tus Ventas
-      </h2>
-      <p class="text-gray-300 text-xl max-w-3xl mx-auto mb-10">
-        Creamos experiencias digitales únicas, potentes y con tecnología de última generación 
-        <span class="text-cyan-400 font-semibold">que convierten tus visitantes en clientes.</span>
-      </p>
-      <div class="flex justify-center gap-6">
-        <a href="#planes" class="bg-gradient-to-r from-cyan-400 to-fuchsia-500 text-black font-semibold px-8 py-3 rounded-full hover:opacity-90 transition transform hover:scale-105 shadow-lg">
-          Ver Precios
-        </a>
-        <a href="#portafolio" class="border-2 border-cyan-400 text-cyan-400 font-semibold px-8 py-3 rounded-full hover:bg-cyan-400 hover:text-black transition transform hover:scale-105 shadow-lg">
-          Ver Portafolio
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- HERO -->
+  <section id="inicio" class="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden px-6">
+     <!-- 🎬 Video de fondo -->
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.4]">
+      <source src="videos/fondo.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
 
-  <!-- SECCIÓN PROYECTOS -->
-  <section id="servicios" class="py-20 text-center relative overflow-hidden bg-gradient-to-b from-amber-50 via-white to-amber-100 text-black">
-    <h2 class="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-blue-500 mb-12">
-      Proyectos Recientes
+    <!-- Capa de degradado dorado sutil -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+
+    
+    <h2 class="text-6xl sm:text-7xl font-extrabold mb-6 text-gold" id="heroTitle">
+      Diseño Web de Alto Nivel
     </h2>
-
-    <p class="text-gray-700 text-lg max-w-2xl mx-auto mb-10">
-      Algunos de nuestros últimos proyectos en diseño web, landing pages y tiendas en línea creadas para impulsar negocios.
+    <p class="text-gray-300 text-xl max-w-2xl mx-auto mb-10" id="heroSubtitle">
+      Creamos experiencias digitales con estética minimalista, enfoque estratégico y resultados medibles.
     </p>
-
-    <!-- Carrusel de imágenes múltiples -->
-    <div class="relative w-full overflow-hidden" data-aos="fade-up">
-      <div id="multiCarousel" class="flex gap-6 animate-scroll">
-        <img src="img/proyecto4.jpg" class="w-100 h-72 object-cover rounded-xl shadow-lg flex-shrink-0" alt="Proyecto 1">
-        <img src="img/proyecto2.jpg" class="w-100 h-72 object-cover rounded-xl shadow-lg flex-shrink-0" alt="Proyecto 2">
-        <img src="img/proyecto3.jpg" class="w-100 h-72 object-cover rounded-xl shadow-lg flex-shrink-0" alt="Proyecto 3">
-        <img src="img/proyecto4.jpg" class="w-100 h-72 object-cover rounded-xl shadow-lg flex-shrink-0" alt="Proyecto 4">
-        <img src="img/proyecto5.jpg" class="w-100 h-72 object-cover rounded-xl shadow-lg flex-shrink-0" alt="Proyecto 5">
-        <img src="img/proyecto6.jpg" class="w-100 h-72 object-cover rounded-xl shadow-lg flex-shrink-0" alt="Proyecto 6">
-        <img src="img/proyecto1.jpg" class="w-100 h-72 object-cover rounded-xl shadow-lg flex-shrink-0" alt="Proyecto 1">
-        <img src="img/proyecto2.jpg" class="w-100 h-72 object-cover rounded-xl shadow-lg flex-shrink-0" alt="Proyecto 2">
-       
-      </div>
+    <div class="flex justify-center gap-6">
+      <a href="#planes" class="btn-gold px-8 py-3 rounded-full shadow-lg">Ver Planes</a>
+      <a href="#portafolio" class="border-2 border-yellow-400 text-yellow-400 font-semibold px-8 py-3 rounded-full hover:bg-yellow-400 hover:text-black transition-all">Portafolio</a>
     </div>
-
-    <style>
-      @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-scroll { width: max-content; animation: scroll 30s linear infinite; }
-      .animate-scroll:hover { animation-play-state: paused; }
-    </style>
   </section>
-  <section id="servicios" class="py-24 bg-gradient-to-b from-white via-amber-50 to-amber-100 text-center">
-  <h2 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-blue-500 mb-16" data-aos="fade-up">
-    Nuestros Servicios
-  </h2>
+ 
+<!-- SECCIÓN SERVICIOS (UNIFICADA Y PREMIUM) -->
+<section id="servicios" class="py-28 bg-gradient-to-b from-black via-[#0a0a0a] to-[#1a1a1a] text-center">
+  <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
+  <div class="divider"></div>
+  <p class="text-gray-400 max-w-2xl mx-auto mb-16">
+    Diseñamos soluciones digitales de lujo que combinan estética, tecnología y resultados. Cada detalle refleja la esencia premium de tu marca.
+  </p>
 
   <div class="grid md:grid-cols-3 gap-12 px-6 max-w-7xl mx-auto">
-    <!-- Servicio 1: Páginas Web Estáticas -->
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-6 border border-gray-200" data-aos="fade-right">
-      <h3 class="text-2xl font-bold text-gray-800 mb-4">Creación de Páginas Web y LandingPage</h3>
-      <p class="text-gray-600 mb-6">
-        Diseñamos sitios web rápidos, optimizados y visualmente atractivos que destacan tu marca con un estilo profesional.
+    <!-- Servicio 1 -->
+    <div class="bg-[#111] border border-yellow-700/30 rounded-2xl p-8 shadow-[0_0_25px_rgba(255,215,0,0.1)] hover:scale-105 hover:shadow-[0_0_35px_rgba(255,215,0,0.25)] transition-all duration-500">
+      <h3 class="text-2xl font-bold text-yellow-400 mb-4">Diseño Web & Landing Pages</h3>
+      <p class="text-gray-300 mb-6">
+        Creamos experiencias digitales rápidas, elegantes y cautivadoras. Perfectas para marcas que buscan destacar con estilo y eficiencia.
       </p>
-      <!-- Carrusel de imágenes -->
-      <div class="relative w-full overflow-hidden rounded-xl shadow-md">
+      <div class="relative w-full overflow-hidden rounded-xl">
         <div class="flex animate-scroll-fast gap-6">
-          <img src="img/proyecto2.jpg" class="w-96 h-60 object-cover rounded-xl flex-shrink-0" alt="Sitio web estático 1">
-          <img src="img/proyecto4.jpg" class="w-96 h-60 object-cover rounded-xl flex-shrink-0" alt="Sitio web estático 2">
-          <img src="img/proyecto3.jpg" class="w-96 h-60 object-cover rounded-xl flex-shrink-0" alt="Sitio web estático 3">
-          <img src="img/estatica4.jpg" class="w-96 h-60 object-cover rounded-xl flex-shrink-0" alt="Sitio web estático 4">
-          <img src="img/estatica5.jpg" class="w-96 h-60 object-cover rounded-xl flex-shrink-0" alt="Sitio web estático 5">
-          <!-- Duplicado para bucle infinito -->
-          <img src="img/estatica1.jpg" class="w-96 h-60 object-cover rounded-xl flex-shrink-0" alt="Sitio web estático 1">
+          <img src="img/proyecto2.jpg" class="w-96 h-56 object-cover rounded-xl flex-shrink-0">
+          <img src="img/proyecto3.jpg" class="w-96 h-56 object-cover rounded-xl flex-shrink-0">
+          <img src="img/proyecto4.jpg" class="w-96 h-56 object-cover rounded-xl flex-shrink-0">
+          <img src="img/proyecto5.jpg" class="w-96 h-56 object-cover rounded-xl flex-shrink-0">
         </div>
       </div>
     </div>
 
-    <!-- Servicio 2: Creación de Videos con IA -->
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-6 border border-gray-200" data-aos="fade-up">
-      <h3 class="text-2xl font-bold text-gray-800 mb-4">Creación de Videos con IA</h3>
-      <p class="text-gray-600 mb-6">
-        Generamos videos personalizados con inteligencia artificial, ideales para marketing digital, redes sociales y presentaciones empresariales.
+    <!-- Servicio 2 -->
+    <div class="bg-[#111] border border-yellow-700/30 rounded-2xl p-8 shadow-[0_0_25px_rgba(255,215,0,0.1)] hover:scale-105 hover:shadow-[0_0_35px_rgba(255,215,0,0.25)] transition-all duration-500">
+      <h3 class="text-2xl font-bold text-yellow-400 mb-4">Videos con Inteligencia Artificial</h3>
+      <p class="text-gray-300 mb-6">
+        Producimos contenido audiovisual con tecnología IA, ideal para campañas de alto impacto, lanzamientos y redes sociales.
       </p>
-      <!-- Carrusel de videos -->
-      <div class="relative w-full overflow-hidden rounded-xl shadow-md">
+      <div class="relative w-full overflow-hidden rounded-xl">
         <div class="flex animate-scroll-slow gap-6">
-          <video src="videos/video4.mp4" class="w-96 h-60 rounded-xl flex-shrink-0" autoplay muted loop></video>
-          <video src="videos/video2.mp4" class="w-96 h-60 rounded-xl flex-shrink-0" autoplay muted loop></video>
-          <video src="videos/video3.mp4" class="w-96 h-60 rounded-xl flex-shrink-0" autoplay muted loop></video>
-          <video src="videos/video1.mp4" class="w-96 h-60 rounded-xl flex-shrink-0" autoplay muted loop></video>
-          <video src="videos/video.mp4" class="w-96 h-60 rounded-xl flex-shrink-0" autoplay muted loop></video>
-          <!-- Duplicado -->
-          <video src="videos/video4.mp4" class="w-96 h-60 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/video1.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/cola.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/video2.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/video3.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/video4.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          
+          <video src="videos/video1.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
         </div>
       </div>
     </div>
 
-    <!-- Servicio 3: Mantenimiento Web -->
-    <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-6 border border-gray-200" data-aos="fade-left">
-      <h3 class="text-2xl font-bold text-gray-800 mb-4">Mantenimiento de Página Web o Landing Page</h3>
-      <p class="text-gray-600 mb-6">
-        Nos encargamos de mantener tu sitio actualizado, seguro y funcionando perfectamente para que sigas atrayendo clientes sin preocupaciones.
+    <!-- Servicio 3 -->
+    <div class="bg-[#111] border border-yellow-700/30 rounded-2xl p-8 shadow-[0_0_25px_rgba(255,215,0,0.1)] hover:scale-105 hover:shadow-[0_0_35px_rgba(255,215,0,0.25)] transition-all duration-500">
+      <h3 class="text-2xl font-bold text-yellow-400 mb-4">Mantenimiento Web Premium</h3>
+      <p class="text-gray-300 mb-6">
+        Mantén tu sitio siempre actualizado, rápido y seguro. Nosotros cuidamos tu presencia digital con precisión y excelencia.
       </p>
-      <!-- Video único -->
-      <div class="rounded-xl shadow-md overflow-hidden">
-        <video src="videos/mantenimiento.mp4" class="w-full h-60 object-cover" autoplay muted loop></video>
+      <div class="rounded-xl overflow-hidden">
+        <video src="videos/mantenimiento.mp4" class="w-full h-56 object-cover" autoplay muted loop></video>
       </div>
     </div>
   </div>
 
-  <!-- Estilos para animaciones de los carruseles -->
   <style>
     @keyframes scroll-fast {
       0% { transform: translateX(0); }
@@ -174,7 +187,7 @@
     }
     .animate-scroll-fast {
       width: max-content;
-      animation: scroll-fast 20s linear infinite;
+      animation: scroll-fast 22s linear infinite;
     }
     .animate-scroll-slow {
       width: max-content;
@@ -188,80 +201,82 @@
 </section>
 
 
-  <!-- SCRIPT DE EFECTO DE ACLARADO -->
-  <script>
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const height = window.innerHeight;
-      const progress = Math.min(scrollY / height, 1);
+  <!-- POR QUÉ ELEGIRNOS -->
+  <section id="porqueelegirnos" class="py-24 text-center bg-black">
+    <h2 class="section-title" data-aos="fade-up">Por Qué Elegirnos</h2>
+    <div class="divider"></div>
+    <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto px-6 mt-12">
+      <div data-aos="fade-right">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-3">💎 Experiencia</h3>
+        <p class="text-gray-400">Más de 8 años desarrollando sitios web premium para marcas exigentes.</p>
+      </div>
+      <div data-aos="fade-up">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-3">⚡ Innovación</h3>
+        <p class="text-gray-400">Usamos tecnologías modernas con un enfoque en la experiencia del usuario.</p>
+      </div>
+      <div data-aos="fade-left">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-3">🤝 Compromiso</h3>
+        <p class="text-gray-400">Tu éxito es nuestro objetivo: acompañamos cada proyecto desde el diseño hasta el crecimiento.</p>
+      </div>
+    </div>
+  </section>
+ <!-- SECCIÓN PROYECTOS (ESTILO PREMIUM NEGRO Y DORADO) -->
+<section id="proyectos" class="py-24 bg-black text-center relative overflow-hidden">
+     <h2 class="section-title" data-aos="fade-up">  Proyectos Recientes</h2>
+    <div class="divider"></div>
 
-      const dark = { r: 10, g: 10, b: 10 };
-      const light = { r: 245, g: 240, b: 230 };
+  <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-14">
+    Descubre algunos de nuestros últimos proyectos de diseño web, branding y experiencias digitales que reflejan la esencia de la elegancia y la innovación.
+  </p>
 
-      const r = Math.round(dark.r + (light.r - dark.r) * progress);
-      const g = Math.round(dark.g + (light.g - dark.g) * progress);
-      const b = Math.round(dark.b + (light.b - dark.b) * progress);
+  <!-- Carrusel elegante -->
+  <div class="relative w-full overflow-hidden px-6">
+    <div id="proyectosCarousel" class="flex gap-8 animate-scroll-premium">
+      <img src="img/proyecto1.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 1">
+      <img src="img/proyecto2.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 2">
+      <img src="img/proyecto3.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 3">
+      <img src="img/proyecto4.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 4">
+      <img src="img/proyecto5.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 5">
+      <img src="img/proyecto6.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 6">
+      <img src="img/proyecto1.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 1">
+    </div>
+  </div>
 
-      document.body.style.background = `radial-gradient(circle at top left, rgb(${r},${g},${b}), rgb(${r-30},${g-20},${b-25}))`;
-    });
-  </script>
-
-  <!-- SCRIPT CONSTELACIÓN -->
-  <script>
-    const canvas = document.getElementById('constellation');
-    const ctx = canvas.getContext('2d');
-    let w, h, particles;
-
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-      particles = Array.from({length: 80}, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8
-      }));
+  <style>
+    @keyframes scroll-premium {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
-
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0,255,255,0.8)';
-        ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const q = particles[j];
-          const dx = p.x - q.x;
-          const dy = p.y - q.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.strokeStyle = `rgba(0,255,255,${1 - dist / 120})`;
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(draw);
+    .animate-scroll-premium {
+      width: max-content;
+      animation: scroll-premium 35s linear infinite;
     }
+    .animate-scroll-premium:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</section>
+  <!-- CTA FINAL -->
+  <section id="contacto" class="py-28 bg-gradient-to-b from-[#0a0a0a] to-[#111] text-center">
+    <h2 class="text-5xl font-bold text-gold mb-6" data-aos="fade-up">¿Listo para transformar tu presencia digital?</h2>
+    <p class="text-gray-400 mb-10 max-w-xl mx-auto">
+      Creamos experiencias visuales con propósito. Contacta con nosotros y llevemos tu marca al siguiente nivel.
+    </p>
+    <a href="#planes" class="btn-gold px-10 py-4 rounded-full text-lg shadow-lg">Comenzar Ahora</a>
+  </section>
 
-    window.addEventListener('resize', resize);
-    resize();
-    draw();
-  </script>
+  <footer class="bg-black py-6 text-center text-gray-500 text-sm border-t border-yellow-700">
+    © 2025 WebX Design — Diseño Web Premium con Propósito.
+  </footer>
 
   <script>
     AOS.init({ duration: 1000, once: true });
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#heroTitle", { duration: 1.5, y: 40, opacity: 0, ease: "power3.out" });
+    gsap.from("#heroSubtitle", { duration: 1.5, y: 20, opacity: 0, delay: 0.4, ease: "power2.out" });
   </script>
+
 </body>
 </html>
+
