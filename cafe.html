@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cacao Cola</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    body {
+      background-color: #1b0d06;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.45);
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(43, 24, 10, 0.6);
+      z-index: -1;
+    }
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+    @keyframes rise {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-800px);
+        opacity: 0;
+      }
+    }
+    .shine-btn {
+      position: relative;
+      overflow: hidden;
+      color: #3b1e08;
+      background: linear-gradient(90deg, #facc15, #fbbf24);
+    }
+    .shine-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: skewX(-25deg);
+      animation: shine 3s infinite;
+    }
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 125%; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Fondo de video -->
+  <video class="bg-video" src="videos/cola.mp4" autoplay muted loop playsinline></video>
+  <div class="overlay"></div>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md">
+    <nav class="flex justify-between items-center px-10 py-4">
+      <h1 class="text-2xl font-extrabold text-yellow-400 tracking-widest">CACAO COLA</h1>
+      <ul class="flex gap-8 text-lg">
+        <li><a href="#inicio" class="hover:text-yellow-300 transition">Inicio</a></li>
+        <li><a href="#historia" class="hover:text-yellow-300 transition">Historia</a></li>
+        <li><a href="#recomendaciones" class="hover:text-yellow-300 transition">Opiniones</a></li>
+        <li><a href="#tienda" class="hover:text-yellow-300 transition">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero principal -->
+  <section
+    id="inicio"
+    class="h-screen flex flex-col justify-center items-center text-center relative"
+  >
+    <h2
+      id="heroTitle"
+      class="text-6xl sm:text-8xl font-extrabold mb-10 text-white drop-shadow-lg tracking-widest"
+    >
+      CACAO COLA
+    </h2>
+
+    <button
+      onclick="document.querySelector('#historia').scrollIntoView({behavior:'smooth'})"
+      class="shine-btn px-10 py-4 text-lg sm:text-xl rounded-full font-semibold shadow-lg hover:scale-105 transition-all"
+    >
+      Descubre el sabor
+    </button>
+  </section>
+
+  <!-- Historia del producto -->
+  <section
+    id="historia"
+    class="min-h-screen bg-gradient-to-b from-[#1b0d06] to-[#3b1e08] flex flex-col sm:flex-row items-center justify-center px-10 gap-10 py-16 relative overflow-hidden"
+  >
+    <!-- Fondo decorativo -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/chocolate-milk.png')]"></div>
+
+    <img
+      id="lata"
+      src="img/historia.png"
+      class="w-80 sm:w-[420px] opacity-0 translate-x-[-100px] drop-shadow-2xl relative z-10"
+      alt="Lata Cacao Cola"
+    />
+    <div class="max-w-xl relative z-10">
+      <h3 class="text-4xl font-bold mb-6 text-yellow-400">Una fusión irresistible</h3>
+      <p class="text-lg text-gray-200 leading-relaxed mb-4">
+        Cacao Cola no es solo una bebida, es una experiencia sensorial. Desde el primer sorbo,
+        sientes la suavidad del cacao natural combinada con la frescura burbujeante de una cola
+        artesanal. Su sabor profundo y auténtico te transporta a los orígenes del chocolate mexicano,
+        donde la tradición del cacao se mezcla con la innovación moderna.
+      </p>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        Elaborada con extractos naturales y sin conservadores artificiales, cada lata guarda un
+        equilibrio perfecto entre energía y placer. Una bebida para quienes buscan algo diferente,
+        refinado y con carácter.
+      </p>
+      <button
+        onclick="document.querySelector('#tienda').scrollIntoView({behavior:'smooth'})"
+        class="mt-8 bg-yellow-500 text-brown-900 px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition shadow-lg"
+      >
+        Probar ahora
+      </button>
+    </div>
+  </section>
+
+  <!-- Opiniones -->
+  <section id="recomendaciones" class="py-20 bg-[#2b1609] text-center">
+    <h3 class="text-3xl font-bold text-yellow-400 mb-10">Lo que dicen nuestros fans</h3>
+    <div
+      class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 px-6"
+    >
+      <div
+        class="p-6 bg-[#3b1e08]/70 rounded-xl shadow-lg hover:scale-105 transition-all"
+      >
+        <p>
+          "Nunca imaginé que el cacao y la cola se combinaran tan bien. Es
+          adictivo!"
+        </p>
+        <span class="block mt-4 text-yellow-300 font-semibold">— Carla M.</span>
+      </div>
+      <div
+        class="p-6 bg-[#3b1e08]/70 rounded-xl shadow-lg hover:scale-105 transition-all"
+      >
+        <p>
+          "Refrescante y con ese toque de cacao que te hace sentir energía
+          natural."
+        </p>
+        <span class="block mt-4 text-yellow-300 font-semibold">— Luis A.</span>
+      </div>
+      <div
+        class="p-6 bg-[#3b1e08]/70 rounded-xl shadow-lg hover:scale-105 transition-all"
+      >
+        <p>
+          "La bebida perfecta para los que amamos el chocolate pero queremos
+          algo diferente."
+        </p>
+        <span class="block mt-4 text-yellow-300 font-semibold">— Sofía R.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tienda -->
+  <section
+    id="tienda"
+    class="h-screen relative flex flex-col items-center justify-center overflow-hidden"
+  >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-[#1b0d06] via-[#3b1e08] to-[#1b0d06] opacity-90"
+    ></div>
+    <img
+      id="lataFinal"
+      src="img/latacola.png"
+      alt="Lata Cacao Cola"
+      class="w-64 sm:w-96 relative z-10 opacity-0"
+    />
+    <button
+      class="mt-10 bg-yellow-500 text-brown-900 px-10 py-3 rounded-full text-xl font-semibold hover:bg-yellow-400 hover:scale-105 transition-all shadow-lg relative z-10"
+    >
+      Comprar Ahora
+    </button>
+
+    <div id="bubbles"></div>
+  </section>
+
+  <footer class="bg-[#120802] py-6 text-center text-gray-400 text-sm">
+    © 2025 Cacao Cola — Diseño por Webx Design.
+  </footer>
+
+  <!-- Animaciones GSAP -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#heroTitle", {
+      duration: 2,
+      opacity: 0,
+      y: 50,
+      ease: "power3.out",
+    });
+
+    gsap.to("#heroTitle", {
+      textShadow: "0px 0px 20px #facc15",
+      repeat: -1,
+      yoyo: true,
+      duration: 2,
+      ease: "sine.inOut",
+    });
+
+    gsap.to("#lata", {
+      scrollTrigger: { trigger: "#historia", start: "top 80%" },
+      opacity: 1,
+      x: 0,
+      duration: 1.5,
+      ease: "power2.out",
+    });
+
+    gsap.to("#lataFinal", {
+      scrollTrigger: { trigger: "#tienda", start: "top 70%" },
+      opacity: 1,
+      scale: 1.1,
+      duration: 2,
+      ease: "power2.out",
+    });
+
+    // Burbujas
+    const bubbles = document.getElementById("bubbles");
+    for (let i = 0; i < 20; i++) {
+      const bubble = document.createElement("div");
+      bubble.classList.add("bubble");
+      const size = Math.random() * 20 + 10;
+      bubble.style.width = size + "px";
+      bubble.style.height = size + "px";
+      bubble.style.left = Math.random() * 100 + "%";
+      bubble.style.animationDelay = Math.random() * 5 + "s";
+      bubbles.appendChild(bubble);
+    }
+  </script>
+</body>
+</html>

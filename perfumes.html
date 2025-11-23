@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfumes Élite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063036.png" />
+</head>
+
+<body class="bg-gradient-to-b from-rose-50 to-white text-gray-800 font-sans">
+
+  <!-- NAVBAR -->
+  <header class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-semibold text-rose-600">Perfumes Élite</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#productos" class="hover:text-rose-600 transition">Productos</a>
+        <a href="#nosotros" class="hover:text-rose-600 transition">Nosotros</a>
+        <a href="#testimonios" class="hover:text-rose-600 transition">Testimonios</a>
+      </nav>
+      <button onclick="scrollToCompra()" class="bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition">
+        Comprar ahora
+      </button>
+    </div>
+  </header>
+
+ <!-- HERO MEJORADO -->
+  <section class="relative flex flex-col md:flex-row items-center justify-center text-center md:text-left min-h-screen pt-24 md:pt-32 px-6 md:px-16 bg-gradient-to-r from-white via-rose-50 to-pink-50 overflow-hidden">
+    
+    <!-- Imagen de fondo difuminada -->
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600181954103-6b6f3e71d7d4?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-20"></div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      
+      <!-- Texto principal -->
+      <div class="space-y-6">
+        <h2 class="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900">
+          Elegancia que <span class="text-rose-600">inspira</span> tus sentidos
+        </h2>
+        <p class="text-gray-700 text-lg md:text-xl max-w-md">
+          Fragancias creadas para reflejar tu esencia. Cada gota cuenta una historia, cada aroma deja huella.
+        </p>
+        <div class="flex justify-center md:justify-start gap-4">
+          <button onclick="scrollToCompra()" class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-3 rounded-full text-lg font-medium transition shadow-md">
+            Explorar perfumes
+          </button>
+          <button onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})" class="border border-rose-600 text-rose-600 hover:bg-rose-50 px-8 py-3 rounded-full text-lg font-medium transition">
+            Ver colección
+          </button>
+        </div>
+      </div>
+
+      <!-- Imagen principal del perfume -->
+      <div class="relative flex justify-center">
+        <div class="absolute -bottom-8 -right-8 w-72 h-72 bg-rose-200 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+        <img src="img/elite.png"
+          alt="Perfume destacado" class="relative z-10 w-72 md:w-96 rounded-3xl shadow-2xl transform hover:scale-105 transition duration-700">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="py-24 max-w-7xl mx-auto px-6">
+    <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">Colección Destacada</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transform hover:-translate-y-2 transition">
+        <img src="img/flor.png" alt="Perfume floral" class="rounded-xl mb-4">
+        <h4 class="text-xl font-semibold mb-2">Flor de Luna</h4>
+        <p class="text-gray-600 mb-4">Una fragancia suave con notas de jazmín y vainilla.</p>
+        <span class="text-rose-600 font-bold text-lg">$49.99 USD</span>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transform hover:-translate-y-2 transition">
+        <img src="img/noir.png" alt="Perfume amaderado" class="rounded-xl mb-4">
+        <h4 class="text-xl font-semibold mb-2">Noir Essence</h4>
+        <p class="text-gray-600 mb-4">Aroma profundo con toques de madera y ámbar.</p>
+        <span class="text-rose-600 font-bold text-lg">$59.99 USD</span>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transform hover:-translate-y-2 transition">
+        <img src="img/citrus.png" alt="Perfume cítrico" class="rounded-xl mb-4">
+        <h4 class="text-xl font-semibold mb-2">Citrus Glow</h4>
+        <p class="text-gray-600 mb-4">Fragancia fresca con notas de naranja y bergamota.</p>
+        <span class="text-rose-600 font-bold text-lg">$44.99 USD</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="bg-rose-50 py-24">
+    <div class="max-w-6xl mx-auto px-6 md:flex items-center gap-10">
+      <img src="img/quienes.png" alt="Sobre nosotros" class="rounded-2xl shadow-lg md:w-1/2 mb-8 md:mb-0">
+      <div>
+        <h3 class="text-4xl font-bold mb-6 text-gray-800">Sobre Perfumes Élite</h3>
+        <p class="text-gray-700 mb-4">Desde 2010, nos dedicamos a crear perfumes artesanales con esencias premium. Cada aroma está diseñado para transmitir elegancia, personalidad y confianza.</p>
+        <p class="text-gray-700">Nuestros perfumistas combinan tradición y tecnología moderna para ofrecer experiencias olfativas únicas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios" class="py-24 max-w-6xl mx-auto px-6 text-center">
+    <h3 class="text-4xl font-bold mb-12">Lo que opinan nuestros clientes</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white shadow-lg rounded-2xl p-6">
+        <p class="text-gray-700 italic mb-4">“El aroma de Flor de Luna me encanta, dura todo el día. ¡Recomendado!”</p>
+        <span class="font-semibold text-rose-600">— Ana G.</span>
+      </div>
+      <div class="bg-white shadow-lg rounded-2xl p-6">
+        <p class="text-gray-700 italic mb-4">“Noir Essence tiene una elegancia única. Ideal para ocasiones especiales.”</p>
+        <span class="font-semibold text-rose-600">— Daniel P.</span>
+      </div>
+      <div class="bg-white shadow-lg rounded-2xl p-6">
+        <p class="text-gray-700 italic mb-4">“Me encanta Citrus Glow, refrescante y vibrante. ¡Mi favorito!”</p>
+        <span class="font-semibold text-rose-600">— Sofía M.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="compra" class="bg-rose-600 py-24 text-center text-white">
+    <h3 class="text-4xl font-bold mb-6">Descubre tu aroma ideal</h3>
+    <p class="mb-8 text-lg">Encuentra el perfume perfecto para ti o para regalar.</p>
+    <button onclick="alert('Gracias por tu interés 💖')" class="bg-white text-rose-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-rose-50 transition">Comprar ahora</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-300 text-center py-6">
+    <p>© 2025 Perfumes Élite. Diseño por Webx Design.</p>
+  </footer>
+
+  <script>
+    function scrollToCompra() {
+      document.getElementById("compra").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>

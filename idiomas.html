@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aprende Idiomas Online | GlobalLingua</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gold { color: #fbbf24; }
+    .bg-gold { background-color: #fbbf24; }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- HERO -->
+  <section class="relative h-screen flex flex-col justify-center items-center bg-black text-white text-center">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-70">
+      <source src="videos/idiomas.mp4" type="video/mp4">
+    </video>
+    <div class="relative z-10">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Aprende Idiomas con <span class="gold">GlobalLingua</span></h1>
+      <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Domina inglés, francés, italiano y más desde cualquier lugar con profesores nativos.</p>
+      <button id="btnPlan" class="bg-gold text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition">Ver Planes</button>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="py-20 px-6 bg-white text-center">
+    <h2 class="text-3xl font-bold mb-12 text-blue-700">¿Por qué elegir GlobalLingua?</h2>
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div>
+        <img src="img/calse.png" class="w-full rounded-xl mb-4" alt="Clases en vivo">
+        <h3 class="text-xl font-semibold mb-2">Clases en vivo</h3>
+        <p>Conecta con profesores certificados y aprende en tiempo real desde tu casa.</p>
+      </div>
+      <div>
+        <img src="img/profesores.png" class="w-full rounded-xl mb-4" alt="Profesores nativos">
+        <h3 class="text-xl font-semibold mb-2">Profesores nativos</h3>
+        <p>Aprende con hablantes nativos que te ayudarán a mejorar tu pronunciación.</p>
+      </div>
+      <div>
+        <img src="img/certificado.png" class="w-full rounded-xl mb-4" alt="Certificado internacional">
+        <h3 class="text-xl font-semibold mb-2">Certificación internacional</h3>
+        <p>Recibe un certificado oficial que acredita tu nivel de idioma.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDERAS / IDIOMAS -->
+  <section class="bg-blue-50 py-20 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-10 text-blue-700">Idiomas disponibles</h2>
+    <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div class="bg-white p-6 rounded-xl shadow">
+        <img src="https://flagcdn.com/w320/gb.png" class="w-20 mx-auto mb-4" alt="Inglés">
+        <h3 class="text-xl font-semibold mb-2">Inglés</h3>
+        <p class="text-gray-600 text-sm">Aprende el idioma global con certificaciones TOEFL o IELTS.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <img src="https://flagcdn.com/w320/fr.png" class="w-20 mx-auto mb-4" alt="Francés">
+        <h3 class="text-xl font-semibold mb-2">Francés</h3>
+        <p class="text-gray-600 text-sm">Domina el idioma del arte, la cultura y la diplomacia mundial.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <img src="https://flagcdn.com/w320/it.png" class="w-20 mx-auto mb-4" alt="Italiano">
+        <h3 class="text-xl font-semibold mb-2">Italiano</h3>
+        <p class="text-gray-600 text-sm">Aprende a comunicarte con fluidez y disfruta de la cultura italiana.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow">
+        <img src="https://flagcdn.com/w320/jp.png" class="w-20 mx-auto mb-4" alt="Japonés">
+        <h3 class="text-xl font-semibold mb-2">Japonés</h3>
+        <p class="text-gray-600 text-sm">Descubre un nuevo mundo con nuestras clases interactivas de japonés.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP MÓVIL -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10">
+      <img src="img/app.png" alt="App GlobalLingua" class="rounded-3xl shadow-xl w-full">
+      <div>
+        <h2 class="text-3xl font-bold mb-6 text-blue-700">Aprende donde quieras</h2>
+        <p class="text-gray-600 mb-4">Con nuestra app móvil podrás tomar clases, practicar vocabulario, y seguir tu progreso desde tu celular o tablet.</p>
+        <ul class="space-y-2 text-gray-700">
+          <li>📱 Disponible para iOS y Android</li>
+          <li>💬 Chats con tus profesores</li>
+          <li>🎧 Ejercicios interactivos de audio</li>
+          <li>🏆 Sistema de logros y recompensas</li>
+        </ul>
+        <button class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Descargar App</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE CONTACTO -->
+  <section id="contacto" class="bg-blue-700 text-white py-20 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-8">Contáctanos</h2>
+    <p class="mb-8 text-lg">¿Tienes dudas o quieres una clase de prueba? Envíanos un mensaje.</p>
+    <form id="contactForm" class="max-w-2xl mx-auto text-left space-y-4">
+      <div>
+        <label class="block mb-1">Nombre</label>
+        <input type="text" id="nombre" class="w-full p-3 rounded text-gray-800" required>
+      </div>
+      <div>
+        <label class="block mb-1">Correo</label>
+        <input type="email" id="correo" class="w-full p-3 rounded text-gray-800" required>
+      </div>
+      <div>
+        <label class="block mb-1">Mensaje</label>
+        <textarea id="mensaje" rows="4" class="w-full p-3 rounded text-gray-800" required></textarea>
+      </div>
+      <button type="submit" class="bg-gold text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-300 py-6 text-center">
+    <p>&copy; 2025 GlobalLingua. Diseño por WebX Design.</p>
+  </footer>
+
+  <script>
+    document.getElementById("btnPlan").addEventListener("click", () => {
+      document.getElementById("planes").scrollIntoView({ behavior: "smooth" });
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Gracias por contactarnos. Te responderemos pronto 🌍");
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
