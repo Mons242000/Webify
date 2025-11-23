@@ -1,203 +1,284 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebX Design | Expertos en Diseño Web Futurista</title>
+  <title>WebX Design | Diseño Web Premium</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
-    html {
-      scroll-behavior: smooth;
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background-color: #0a0a0a;
+      overflow-x: hidden;
     }
-    .video-fullscreen {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+
+    /* Fondo con gradiente sutil */
+    .gold-gradient {
+      background: radial-gradient(circle at top left, #1a1a1a, #0a0a0a);
     }
-    .video-fullscreen video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+
+    /* Animación sutil de brillo dorado */
+    .text-gold {
+      background: linear-gradient(90deg, #f9d976, #f39f86, #f9d976);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s linear infinite;
     }
-    header {
-      backdrop-filter: blur(10px);
+
+    @keyframes shine {
+      0% { background-position: 0% }
+      100% { background-position: 200% }
     }
-    section {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
+
+    .btn-gold {
+      background: linear-gradient(90deg, #f5c542, #e2b439);
+      color: #000;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold:hover {
+      background: linear-gradient(90deg, #ffd65a, #f9c74f);
+      transform: scale(1.05);
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #f9d976, #f39f86);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Línea dorada decorativa */
+    .divider {
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #f9d976, #f39f86);
+      margin: 1rem auto;
+      border-radius: 3px;
+    }
+
+    /* Tarjetas elegantes */
+    .card {
+      background: #111;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      transition: all 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #f5c542;
+      box-shadow: 0 8px 30px rgba(245, 197, 66, 0.2);
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white font-sans relative overflow-x-hidden">
 
-  <!-- 🔹 Menú superior -->
-  <header class="fixed top-0 left-0 w-full bg-black/40 text-white z-50">
-    <nav class="flex justify-between items-center px-8 py-4">
-      <h1 class="text-2xl font-bold tracking-widest text-cyan-400">WebX Design</h1>
-      <ul class="flex space-x-8 text-lg">
-        <li><a href="#home" class="hover:text-cyan-400 transition">Home</a></li>
-        <li><a href="#servicios" class="hover:text-cyan-400 transition">Nuestros Servicios</a></li>
-        <li><a href="#recomendaciones" class="hover:text-cyan-400 transition">Recomendaciones</a></li>
-        <li><a href="#catalogo" class="hover:text-cyan-400 transition">Catálogo</a></li>
-        <li><a href="#contacto" class="hover:text-cyan-400 transition">Contacto</a></li>
-      </ul>
-    </nav>
+<body class="gold-gradient">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-md z-50 text-white py-4 px-8 flex justify-between items-center border-b border-gold-300">
+    <h1 class="text-2xl font-bold text-gold tracking-widest">WebX Design</h1>
+    <ul class="flex space-x-6 text-lg">
+      <li><a href="#inicio" class="hover:text-yellow-400 transition">Inicio</a></li>
+      <li><a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a></li>
+      <li><a href="#porqueelegirnos" class="hover:text-yellow-400 transition">Por qué Elegirnos</a></li>
+      <li><a href="#planes" class="hover:text-yellow-400 transition">Planes</a></li>
+      <li><a href="#contacto" class="hover:text-yellow-400 transition">Contacto</a></li>
+    </ul>
   </header>
 
-  <!-- 🔹 Home: solo video -->
-  <section id="home" class="video-fullscreen">
-    <video autoplay muted loop>
-      <source src="video.mp4" type="video/mp4">
+  <!-- HERO -->
+  <section id="inicio" class="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden px-6">
+     <!-- 🎬 Video de fondo -->
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover brightness-[0.4]">
+      <source src="videos/fondo.mp4" type="video/mp4">
       Tu navegador no soporta video HTML5.
     </video>
-  </section>
 
-  <!-- 🔹 Sección principal después del video -->
-  <section id="intro" class="flex flex-col items-center justify-center text-center bg-gray-950">
-    <div class="p-10 rounded-2xl shadow-xl max-w-3xl">
-      <h2 class="text-5xl font-extrabold text-cyan-400 mb-4 drop-shadow-lg">Transformamos Ideas en Experiencias Digitales</h2>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-        En <span class="text-cyan-400 font-semibold">WebX Design</span> creamos páginas web futuristas, con diseños impactantes, velocidad optimizada y tecnología inteligente.  
-        Tu marca no solo estará en internet... <span class="text-cyan-300 font-semibold">dominará la experiencia digital</span>.
+    <!-- Capa de degradado dorado sutil -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+
+    
+    <h2 class="text-6xl sm:text-7xl font-extrabold mb-6 text-gold" id="heroTitle">
+      Diseño Web de Alto Nivel
+    </h2>
+    <p class="text-gray-300 text-xl max-w-2xl mx-auto mb-10" id="heroSubtitle">
+      Creamos experiencias digitales con estética minimalista, enfoque estratégico y resultados medibles.
+    </p>
+    <div class="flex justify-center gap-6">
+      <a href="#planes" class="btn-gold px-8 py-3 rounded-full shadow-lg">Ver Planes</a>
+      <a href="#portafolio" class="border-2 border-yellow-400 text-yellow-400 font-semibold px-8 py-3 rounded-full hover:bg-yellow-400 hover:text-black transition-all">Portafolio</a>
+    </div>
+  </section>
+ 
+<!-- SECCIÓN SERVICIOS (UNIFICADA Y PREMIUM) -->
+<section id="servicios" class="py-28 bg-gradient-to-b from-black via-[#0a0a0a] to-[#1a1a1a] text-center">
+  <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
+  <div class="divider"></div>
+  <p class="text-gray-400 max-w-2xl mx-auto mb-16">
+    Diseñamos soluciones digitales de lujo que combinan estética, tecnología y resultados. Cada detalle refleja la esencia premium de tu marca.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-12 px-6 max-w-7xl mx-auto">
+    <!-- Servicio 1 -->
+    <div class="bg-[#111] border border-yellow-700/30 rounded-2xl p-8 shadow-[0_0_25px_rgba(255,215,0,0.1)] hover:scale-105 hover:shadow-[0_0_35px_rgba(255,215,0,0.25)] transition-all duration-500">
+      <h3 class="text-2xl font-bold text-yellow-400 mb-4">Diseño Web & Landing Pages</h3>
+      <p class="text-gray-300 mb-6">
+        Creamos experiencias digitales rápidas, elegantes y cautivadoras. Perfectas para marcas que buscan destacar con estilo y eficiencia.
       </p>
-      <a href="#servicios" class="mt-8 inline-block bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-8 py-3 rounded-full transition">
-        Conoce Nuestros Servicios
-      </a>
-    </div>
-  </section>
-
-  <!-- 🔹 Servicios -->
-  <section id="servicios" class="bg-gray-900">
-    <div class="container mx-auto text-center px-6">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-6">Nuestros Servicios</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-
-        <!-- Servicio 1 -->
-        <div class="p-4 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
-          <img src="https://blog.zegocloud.com/wp-content/uploads/2024/03/types-of-web-development-services.jpg" alt="SEO" class="rounded-xl mb-4 w-full h-40 object-cover">
-          <h3 class="text-2xl font-semibold mb-2">Diseño Web Personalizado</h3>
-          <p class="text-gray-400 text-sm">Creamos sitios únicos que reflejan tu identidad. Diseño moderno, fluido y optimizado para todos los dispositivos.</p>
-        </div>
-
-        <!-- Servicio 2 -->
-        <div class="p-4 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
-          <img src="https://static.vecteezy.com/system/resources/previews/008/612/703/non_2x/html-code-on-computer-monitor-software-web-developer-programming-code-photo.jpg" alt="SEO" class="rounded-xl mb-4 w-full h-40 object-cover">
-          <h3 class="text-2xl font-semibold mb-2">Optimización SEO</h3>
-          <p class="text-gray-400 text-sm">Posicionamos tu web en los primeros resultados de búsqueda, con estrategias inteligentes y contenido optimizado.</p>
-        </div>
-
-        <!-- Servicio 3 -->
-        <div class="p-4 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transition">
-           <img src="https://thumbs.dreamstime.com/b/integraci%C3%B3n-impulsada-por-ia-en-sistemas-inteligentes-vouch-la-potencia-los-ecosistemas-mediante-automatizaci%C3%B3n-de-tareas-que-389994431.jpg" alt="SEO" class="rounded-xl mb-4 w-full h-40 object-cover">
-          <h3 class="text-2xl font-semibold mb-2">Integraciones Inteligentes</h3>
-          <p class="text-gray-400 text-sm">Automatiza procesos, conecta tu web con IA, CRM o chatbots y potencia tu productividad.</p>
+      <div class="relative w-full overflow-hidden rounded-xl">
+        <div class="flex animate-scroll-fast gap-6">
+          <img src="img/proyecto2.jpg" class="w-96 h-56 object-cover rounded-xl flex-shrink-0">
+          <img src="img/proyecto3.jpg" class="w-96 h-56 object-cover rounded-xl flex-shrink-0">
+          <img src="img/proyecto4.jpg" class="w-96 h-56 object-cover rounded-xl flex-shrink-0">
+          <img src="img/proyecto5.jpg" class="w-96 h-56 object-cover rounded-xl flex-shrink-0">
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- 🔹 Recomendaciones tipo Google -->
-  <section id="recomendaciones" class="bg-gray-950">
-    <div class="container mx-auto text-center px-6">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-8">Reseñas de Nuestros Clientes</h2>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Review 1 -->
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg text-left">
-          <div class="flex items-center space-x-4 mb-4">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 1" class="w-12 h-12 rounded-full">
-            <div>
-              <h3 class="font-semibold text-lg">Ana Martínez</h3>
-              <div class="text-yellow-400">★★★★★</div>
-            </div>
-          </div>
-          <p class="text-gray-300">Excelente servicio, mi página se ve moderna y mis clientes la aman. ¡Totalmente recomendable!</p>
-          <p class="text-gray-500 text-sm mt-3">By Google Reviews</p>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg text-left">
-          <div class="flex items-center space-x-4 mb-4">
-            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Cliente 2" class="w-12 h-12 rounded-full">
-            <div>
-              <h3 class="font-semibold text-lg">Carlos Pérez</h3>
-              <div class="text-yellow-400">★★★★★</div>
-            </div>
-          </div>
-          <p class="text-gray-300">El equipo de WebX es increíble. Captaron perfectamente la visión de mi empresa y la transformaron en una web espectacular.</p>
-          <p class="text-gray-500 text-sm mt-3">By Google Reviews</p>
-        </div>
-
-        <!-- Review 3 -->
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg text-left">
-          <div class="flex items-center space-x-4 mb-4">
-            <img src="https://randomuser.me/api/portraits/women/15.jpg" alt="Cliente 3" class="w-12 h-12 rounded-full">
-            <div>
-              <h3 class="font-semibold text-lg">María López</h3>
-              <div class="text-yellow-400">★★★★☆</div>
-            </div>
-          </div>
-          <p class="text-gray-300">El diseño es elegante y profesional. Me ayudaron con todo el proceso, súper atentos.</p>
-          <p class="text-gray-500 text-sm mt-3">By Google Reviews</p>
+    <!-- Servicio 2 -->
+    <div class="bg-[#111] border border-yellow-700/30 rounded-2xl p-8 shadow-[0_0_25px_rgba(255,215,0,0.1)] hover:scale-105 hover:shadow-[0_0_35px_rgba(255,215,0,0.25)] transition-all duration-500">
+      <h3 class="text-2xl font-bold text-yellow-400 mb-4">Videos con Inteligencia Artificial</h3>
+      <p class="text-gray-300 mb-6">
+        Producimos contenido audiovisual con tecnología IA, ideal para campañas de alto impacto, lanzamientos y redes sociales.
+      </p>
+      <div class="relative w-full overflow-hidden rounded-xl">
+        <div class="flex animate-scroll-slow gap-6">
+          <video src="videos/video1.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/cola.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/video2.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/video3.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          <video src="videos/video4.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
+          
+          <video src="videos/video1.mp4" class="w-96 h-56 rounded-xl flex-shrink-0" autoplay muted loop></video>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- 🔹 Catálogo -->
-  <section id="catalogo" class="bg-gray-900">
-    <div class="container mx-auto text-center px-6">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-8">Catálogo de Proyectos</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        
-        <a href="https://www.marketingmedico.mx/diseno-de-paginas-web-para-medicos/" target="_blank" class="bg-gray-800 rounded-2xl overflow-hidden hover:scale-105 transition block">
-          <img src="https://www.marketingmedico.mx/wp-content/uploads/2016/12/Marketing_Medico_Diseno_de_Paginas_Web_para_Medicos.jpg" alt="Diseño Médico" class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold">Diseño Web para Médicos</h3>
-          </div>
-        </a>
+    <!-- Servicio 3 -->
+    <div class="bg-[#111] border border-yellow-700/30 rounded-2xl p-8 shadow-[0_0_25px_rgba(255,215,0,0.1)] hover:scale-105 hover:shadow-[0_0_35px_rgba(255,215,0,0.25)] transition-all duration-500">
+      <h3 class="text-2xl font-bold text-yellow-400 mb-4">Mantenimiento Web Premium</h3>
+      <p class="text-gray-300 mb-6">
+        Mantén tu sitio siempre actualizado, rápido y seguro. Nosotros cuidamos tu presencia digital con precisión y excelencia.
+      </p>
+      <div class="rounded-xl overflow-hidden">
+        <video src="videos/mantenimiento.mp4" class="w-full h-56 object-cover" autoplay muted loop></video>
+      </div>
+    </div>
+  </div>
 
-        <a href="https://www.motorpasion.com.mx/industria/quien-es-quien-en-cuanto-a-sitios-web-de-marcas-de-autos-en-mexico-los-analizamos" target="_blank" class="bg-gray-800 rounded-2xl overflow-hidden hover:scale-105 transition block">
-          <img src="https://i.blogs.es/b3b66f/collage-sitios-web/1366_2000.jpg" alt="Sitios Automotrices" class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold">Análisis de Sitios Automotrices</h3>
-          </div>
-        </a>
+  <style>
+    @keyframes scroll-fast {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes scroll-slow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll-fast {
+      width: max-content;
+      animation: scroll-fast 22s linear infinite;
+    }
+    .animate-scroll-slow {
+      width: max-content;
+      animation: scroll-slow 30s linear infinite;
+    }
+    .animate-scroll-fast:hover,
+    .animate-scroll-slow:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</section>
 
-        <a href="https://nexovirtual.net/blog/disenar-la-mejor-tienda-online-de-vinos-o-bodegas/" target="_blank" class="bg-gray-800 rounded-2xl overflow-hidden hover:scale-105 transition block">
-          <img src="https://nexovirtual.net/blog/wp-content/uploads/2018/12/mejor-tienda-online-vinos.png" alt="Tienda de Vinos" class="w-full h-56 object-cover">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold">Tienda Online de Vinos</h3>
-          </div>
-        </a>
 
+  <!-- POR QUÉ ELEGIRNOS -->
+  <section id="porqueelegirnos" class="py-24 text-center bg-black">
+    <h2 class="section-title" data-aos="fade-up">Por Qué Elegirnos</h2>
+    <div class="divider"></div>
+    <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto px-6 mt-12">
+      <div data-aos="fade-right">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-3">💎 Experiencia</h3>
+        <p class="text-gray-400">Más de 8 años desarrollando sitios web premium para marcas exigentes.</p>
+      </div>
+      <div data-aos="fade-up">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-3">⚡ Innovación</h3>
+        <p class="text-gray-400">Usamos tecnologías modernas con un enfoque en la experiencia del usuario.</p>
+      </div>
+      <div data-aos="fade-left">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-3">🤝 Compromiso</h3>
+        <p class="text-gray-400">Tu éxito es nuestro objetivo: acompañamos cada proyecto desde el diseño hasta el crecimiento.</p>
       </div>
     </div>
   </section>
+ <!-- SECCIÓN PROYECTOS (ESTILO PREMIUM NEGRO Y DORADO) -->
+<section id="proyectos" class="py-24 bg-black text-center relative overflow-hidden">
+     <h2 class="section-title" data-aos="fade-up">  Proyectos Recientes</h2>
+    <div class="divider"></div>
 
-  <!-- 🔹 Contacto -->
-  <section id="contacto" class="bg-gray-950">
-    <div class="container mx-auto text-center px-6">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-8">Contáctanos</h2>
-      <p class="text-gray-300 mb-8">¿Listo para llevar tu presencia digital al siguiente nivel? Escríbenos y hagamos tu visión realidad.</p>
-      <form class="max-w-md mx-auto space-y-4">
-        <input type="text" placeholder="Tu nombre" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 text-white focus:border-cyan-400">
-        <input type="email" placeholder="Tu correo" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 text-white focus:border-cyan-400">
-        <textarea placeholder="Cuéntanos tu idea" class="w-full p-3 rounded-md bg-gray-800 border border-gray-700 text-white focus:border-cyan-400"></textarea>
-        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-3 rounded-md transition">Enviar</button>
-      </form>
+  <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-14">
+    Descubre algunos de nuestros últimos proyectos de diseño web, branding y experiencias digitales que reflejan la esencia de la elegancia y la innovación.
+  </p>
+
+  <!-- Carrusel elegante -->
+  <div class="relative w-full overflow-hidden px-6">
+    <div id="proyectosCarousel" class="flex gap-8 animate-scroll-premium">
+      <img src="img/proyecto1.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 1">
+      <img src="img/proyecto2.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 2">
+      <img src="img/proyecto3.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 3">
+      <img src="img/proyecto4.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 4">
+      <img src="img/proyecto5.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 5">
+      <img src="img/proyecto6.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 6">
+      <img src="img/proyecto1.jpg" class="w-96 h-72 object-cover rounded-2xl shadow-[0_0_20px_rgba(255,215,0,0.2)] flex-shrink-0" alt="Proyecto 1">
     </div>
+  </div>
+
+  <style>
+    @keyframes scroll-premium {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll-premium {
+      width: max-content;
+      animation: scroll-premium 35s linear infinite;
+    }
+    .animate-scroll-premium:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</section>
+  <!-- CTA FINAL -->
+  <section id="contacto" class="py-28 bg-gradient-to-b from-[#0a0a0a] to-[#111] text-center">
+    <h2 class="text-5xl font-bold text-gold mb-6" data-aos="fade-up">¿Listo para transformar tu presencia digital?</h2>
+    <p class="text-gray-400 mb-10 max-w-xl mx-auto">
+      Creamos experiencias visuales con propósito. Contacta con nosotros y llevemos tu marca al siguiente nivel.
+    </p>
+    <a href="#planes" class="btn-gold px-10 py-4 rounded-full text-lg shadow-lg">Comenzar Ahora</a>
   </section>
 
-  <footer class="bg-black/70 text-center py-6 text-gray-400">
-    © 2025 WebX Design — Creando el Futuro Digital
+  <footer class="bg-black py-6 text-center text-gray-500 text-sm border-t border-yellow-700">
+    © 2025 WebX Design — Diseño Web Premium con Propósito.
   </footer>
+
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#heroTitle", { duration: 1.5, y: 40, opacity: 0, ease: "power3.out" });
+    gsap.from("#heroSubtitle", { duration: 1.5, y: 20, opacity: 0, delay: 0.4, ease: "power2.out" });
+  </script>
 
 </body>
 </html>
+
 
 
